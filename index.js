@@ -1,4 +1,4 @@
-sconst fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 const login = require('./fb-chat-api/index');
 const express = require('express');
