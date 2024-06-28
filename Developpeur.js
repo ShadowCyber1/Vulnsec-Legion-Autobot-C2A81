@@ -25,10 +25,10 @@ module.exports.run = async function({ api, event, args }) {
 		const uptimeString = `${years > 0 ? `${years} years ` : ''}${months > 0 ? `${months} months ` : ''}${weeks > 0 ? `${weeks} weeks ` : ''}${days % 7 > 0 ? `${days % 7} days ` : ''}${hours > 0 ? `${hours} hours ` : ''}${minutes > 0 ? `${minutes} minutes ` : ''}${seconds} seconds`;
 
 		const prefix = "😐";
-		const CREATORLINK = "https://www.facebook.com/share/jxU3yXTKyuY4Wx35/?mibextid=A7sQZp";
-		const BOTCREATOR = "chatbot communauty fr ";
-		const BOTNAME = "💢AKAI💢";
-		const FILESOWNER = "AK";
+		const CREATORLINK = "https://www.facebook.com/profile.php?id=61553917146801";
+		const BOTCREATOR = "VulnSec Legion";
+		const BOTNAME = "💢𝓥𝓤𝓛𝓝𝓢𝓔𝓒-𝓑𝓞𝓣💢";
+		const FILESOWNER = "VulnSec Legion";
 		const juswa = moment.tz("Asia/Manila").format("『D/MM/YYYY』 【HH:mm:ss】");
 		const link = ["https://i.imgur.com/9LDVC57.mp4", "https://i.imgur.com/r7IxgiR.mp4", "https://i.imgur.com/J1jWubu.mp4", "https://i.imgur.com/DJylTiy.mp4", "https://i.imgur.com/v4mLGte.mp4", "https://i.imgur.com/uthREbe.mp4", "https://i.imgur.com/ee8fHna.mp4", "https://i.imgur.com/VffzOwS.mp4", "https://i.imgur.com/ci5nztg.mp4", "https://i.imgur.com/qHPeKDV.mp4", "https://i.imgur.com/Rkl5UmH.mp4",
 "https://i.imgur.com/IGXINCB.mp4",
