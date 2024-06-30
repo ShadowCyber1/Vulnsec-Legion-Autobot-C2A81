@@ -1,24 +1,24 @@
 #𝗚𝗢𝗔𝗧 𝗕𝗢𝗧 𝗕𝗬 ﹝𝗔𝗨𝗧𝗢𝗕𝗢𝗧 𝗢𝗿𝗶𝗴𝗶𝗻𝗮𝗹 𝗖𝗹𝗶𝗳𝗳𝗩𝗶𝗻𝗰𝗲𝗻𝘁 𝗠𝗢𝗗 𝗔𝗘𝗦𝗧𝗛𝗘𝗥﹞
 # PROJECT CREATOR</h1>
-<img src="https://i.ibb.co/Nr8yGrK/440284066.jpg">
+<img src="https://i.postimg.cc/xjPpZwqm/448506764-122150835704130571-2039179753456371543-n.jpg">
 <h1 align="center"><img src="./dashboard/images/logo-non-bg.png" width="22px"> 
 
 # FB PROFILE PHOTO</h1>
-<img src="https://i.ibb.co/QQkNGNP/440160583.jpg" alt="banner">
+<img src="https://ibb.co/WvbnPcK" alt="banner">
 <h1 align="center"><img src="./dashboard/images/logo-non-bg.png" width="22px"> 
  
-  # ﹝𝗔𝗘𝗦𝗧𝗛𝗘𝗥﹞(𝘊𝘺𝘣𝘦𝘳𝘱𝘶𝘯𝘬)  V𝟭 - ABOUT PROJECT INFORMATION</h1>
+  # ﹝𝙑𝙐𝙇𝙉𝙎𝙀𝘾﹞(𝘊𝘺𝘣𝘦𝘳𝘱𝘶𝘯𝘬)  V𝟭 - ABOUT PROJECT INFORMATION</h1>
 
 # MESSANGER CHAT BOT
 # MESSANGER CHATBOT BETA V1
-# OWNER : 𝗔𝗘𝗦𝗧𝗛𝗘𝗥 🔵𝗠𝗜𝗧𝗔𝗠𝗔-𝗦𝗔𝗠𝗔🔵 🍒
+# OWNER : 𝙑𝙐𝙇𝙉𝙎𝙀𝘾 🔵𝙇𝙀𝙂𝙄𝙊𝙉🔵 🍒
 # 𝗣𝗘𝗥𝗠𝗜𝗦𝗦𝗜𝗢𝗡 𝗧𝗢 𝗙𝗢𝗥𝗞 𝗢𝗡𝗟𝗬 𝗜𝗙 𝗨 𝗥𝗘𝗦𝗣𝗘𝗖𝗧 𝗧𝗛𝗘 𝗗𝗘𝗦𝗖𝗥𝗜𝗣𝗧𝗜𝗢𝗡 𝗢𝗙 𝗧𝗛𝗘 𝗣𝗥𝗢𝗝𝗘𝗖𝗧
 # ADDED ... COMMAND 𝗦𝗧𝗜𝗟𝗘 𝗨𝗣𝗗𝗔𝗧𝗘 𝗘𝗩𝗘𝗥𝗬𝗧𝗜𝗠𝗘
-# OWNER FB LINK:-https://https://www.facebook.com/thegodess.aesther)
-# GROUP LINK-https://m.me/j/AbYMH9AQTzoanLB_/
+# OWNER FB LINK:-https://web.facebook.com/profile.php?id=61553917146801
+# GROUP LINK-https://web.facebook.com/profile.php?id=61559230199905
 𝗧𝗵𝗿𝗲𝗮𝗱 𝗜𝗗 💬
-6943226325755342
-# 𝗟𝗘 𝗕𝗢𝗧 𝗘𝗦𝗧 𝗔 𝗠𝗢𝗜 𝗔𝗘𝗦𝗧𝗛𝗘𝗥 𝗖'𝗘𝗦𝗧 𝗠𝗢𝗜 𝗤𝗨𝗜 𝗟𝗔 𝗙𝗔𝗜𝗧 𝗗𝗘𝗣𝗨𝗜𝗦 𝗟𝗘 𝗗𝗘𝗕𝗨𝗧 𝗗𝗢𝗡𝗖 𝗡𝗘 𝗗𝗜𝗦 𝗣𝗔𝗦 𝗤𝗨𝗘 𝗖'𝗘𝗦𝗧 𝗧𝗢𝗜 𝗖𝗔𝗥 𝗖𝗔 𝗡𝗘 𝗧𝗘 𝗥𝗘𝗡𝗗𝗥𝗔 𝗣𝗔𝗦 𝗠𝗘𝗜𝗟𝗟𝗘𝗨𝗥'
+61553917146801
+# 𝐏𝐖𝐄𝐃𝐄 𝐊𝐀𝐘𝐎𝐍𝐆 𝐌𝐀𝐆 𝐅𝐎𝐑𝐊 𝐏𝐄𝐑𝐎, 𝐒𝐀𝐍𝐀 𝐈 𝐑𝐄𝐒𝐏𝐄𝐓𝐎 𝐍𝐘𝐎 𝐖𝐀𝐆 𝐍𝐘𝐎 𝐓𝐀𝐍𝐆𝐆𝐀𝐋𝐈𝐍 𝐘𝐔𝐍𝐆 𝐂𝐑𝐄𝐃𝐈𝐓𝐒 𝐊𝐀𝐒𝐈 𝐇𝐈𝐍𝐃𝐄 𝐘𝐀𝐍 𝐌𝐀𝐆 𝐏𝐀𝐏𝐀𝐆𝐀𝐋𝐈𝐍𝐆 𝐒𝐀𝐈𝐍𝐘𝐎!
 
 # IMPORTANT TIPS
 ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
