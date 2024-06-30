@@ -18,7 +18,7 @@ module.exports.run = async function({ api, event, args }) {
     api.sendMessage(`♡   ∩_∩\n    （„• ֊ •„)♡\n┏━∪∪━━━━ღ❦ღ┓`, event.threadID, event.messageID);
     return;
   }
-  
+
   try {
     const { data } = await axios.get(`https://nash-api-end-5swp.onrender.com/gpt4?query=${encodeURIComponent(input)}`);
     const response = data.response;
@@ -26,9 +26,9 @@ module.exports.run = async function({ api, event, args }) {
       api.sendMessage('The AI could not generate a response. Please try again.', event.threadID, event.messageID);
       return;
     }
-    api.sendMessage(`♡   ∩_∩\n    （„• ֊ •„)♡\n┏━∪∪━━━━ღ❦ღ┓\n🌐[${response}] ♡\n♡   Vulnsec-[📩]\n┗ღ❦ღ━━━━━━━┛\n[✦]|𝗚𝗣𝗧-𝟰`, event.threadID, event.messageID);
+    api.sendMessage(`♡   ∩_∩\n    （„• ֊ •„)♡\n┏━∪∪━━━━ღ❦ღ┓\n🌐 [${response}] ♡\n♡   Vulnsec-[📩]\n┗ღ❦ღ━━━━━━━┛\n[✦]|𝗚𝗣𝗧-𝟰`, event.threadID, event.messageID);
   } catch (error) {
     console.error(error); // Log the error for debugging purposes
-    api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
+    api.sendMessage('An error occurred while processing your request. Please try again later.', event.threadID, event.messageID);
   }
 };
