@@ -11,7 +11,7 @@ const timee = 120; // During timee seconds, spam num times will be banned
 module.exports.config = {
   name: "spamkick",
   version: "1.0.0",
-  hasPermission: 2, // Updated permission level to match sendnoti
+  role: 2, // Updated permission role to match sendnoti
   credits: "VulnSec Legion",
   description: `Toggle automatic kicking of users if they spam ${num} times/${timee}s on or off`,
   usePrefix: true,
@@ -20,8 +20,14 @@ module.exports.config = {
   cooldowns: 5,
 };
 
-module.exports.run = async function ({ api, event }) {
-  const { threadID, messageID } = event;
+module.exports.run = async function ({ api, event, Users }) {
+  const { threadID, messageID, senderID } = event;
+
+  // Check if the user has the required permission level
+  const userInfo = await Users.getData(senderID);
+  if (userInfo.role < 2) {
+    return api.sendMessage("⚠️ You do not have permission to use this command.", threadID, messageID);
+  }
 
   // Toggle antispamEnabled variable
   antispamEnabled = !antispamEnabled;
