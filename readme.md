@@ -5,7 +5,7 @@
 
 # FB PROFILE PHOTO</h1>
 <img src="https://ibb.co/WvbnPcK" alt="banner">
-<h1 align="center"><img src="./dashboard/images/logo-non-bg.png" width="22px"> 
+ 
  
   # ﹝𝙑𝙐𝙇𝙉𝙎𝙀𝘾﹞(𝘊𝘺𝘣𝘦𝘳𝘱𝘶𝘯𝘬)  V𝟭 - ABOUT PROJECT INFORMATION</h1>
 
