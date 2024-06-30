@@ -24,7 +24,7 @@ module.exports.run = async function({
   try {
     const {
       data
-    } = await axios.get(`https://hashier-api-globalgpt.vercel.app/api/globalgpt?q=${encodeURIComponent(input)}`);
+    } = await axios.get(`https://nash-api-end-5swp.onrender.com/gpt4?query=${encodeURIComponent(input)}`);
     const response = data.response;
     api.sendMessage('♡   ∩_∩\n    （„• ֊ •„)♡\n┏━∪∪━━━━ღ❦ღ┓\n🌐['+ response +'] ♡\n♡   𝘢𝘦𝘴𝘵𝘩𝘦𝘳-[📩]\n┗ღ❦ღ━━━━━━━┛\n[✦]|𝗚𝗣𝗧-𝟰 ', event.threadID, event.messageID);
   } catch (error) {
