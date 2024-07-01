@@ -1,17 +1,12 @@
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
-const moment = require("moment-timezone");
-
 let antispamEnabled = true; // Initialize antispamEnabled flag to true (enabled by default)
 
 const num = 8; // Number of times spam gets banned - 1
 const timee = 120; // During timee seconds, spam num times will be banned
 
 module.exports.config = {
-  name: "spamkick",
+  name: "antispamtoggle",
   version: "1.0.0",
-  hasPermission: 2, // Updated permission level to match sendnoti
+  hasPermission: 0,  // Corrected spelling of hasPermission
   credits: "VulnSec Legion",
   description: `Toggle automatic kicking of users if they spam ${num} times/${timee}s on or off`,
   usePrefix: true,
@@ -78,6 +73,7 @@ module.exports.handleEvent = async function ({ Users, Threads, api, event }) {
         const namethread = datathread.threadName;
 
         // Get current timestamp in desired format
+        const moment = require("moment-timezone");
         const timeDate = moment.tz("Asia/Manila").format("DD/MM/YYYY HH:mm:ss");
 
         // Retrieve user data
