@@ -1,4 +1,3 @@
-const axios = require("axios");
 const fs = require("fs-extra");
 const path = require("path");
 
@@ -9,16 +8,17 @@ const admins = JSON.parse(fs.readFileSync(path.resolve(__dirname, "admin.json"))
 
 module.exports.config = {
     name: "spamkick",
-    role: 2,
+    version: "1.1.0",
+    hasPermssion: 2,
     credits: "Deku",
     description: "Toggles the spamkick function and kicks users after spamming 8 times.",
+    commandCategory: "admin",
     usages: "[userID reason]",
-    hasPrefix: false,
-    cooldown: 0,
+    cooldowns: 2,
     aliases: ["skick"]
 };
 
-module.exports.run = async function ({ api, event, args }) {
+module.exports.run = ({ event, api, args }) => {
     const threadID = event.threadID;
     const senderID = event.senderID;
     const userID = args[0];
@@ -40,7 +40,7 @@ module.exports.run = async function ({ api, event, args }) {
     }
 };
 
-module.exports.handleMessage = async function ({ api, event }) {
+module.exports.handleEvent = async ({ api, event }) => {
     const threadID = event.threadID;
     const senderID = event.senderID;
 
