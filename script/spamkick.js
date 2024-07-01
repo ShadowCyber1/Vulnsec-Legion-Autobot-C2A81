@@ -1,128 +1,82 @@
-let antispamEnabled = true; // Initialize antispamEnabled flag to true (enabled by default)
+const axios = require("axios");
+const fs = require("fs-extra");
+const path = require("path");
 
-const num = 8; // Number of times spam gets banned - 1
-const timee = 120; // During timee seconds, spam num times will be banned
+let spamkickState = {};
+let spamCount = {};
+
+const admins = JSON.parse(fs.readFileSync(path.resolve(__dirname, "admin.json")));
 
 module.exports.config = {
-  name: "antispamtoggle",
-  version: "1.0.0",
-  hasPermission: 0,  // Corrected spelling of hasPermission
-  credits: "VulnSec Legion",
-  description: `Toggle automatic kicking of users if they spam ${num} times/${timee}s on or off`,
-  usePrefix: true,
-  commandCategory: "System",
-  usages: "",
-  cooldowns: 5,
+    name: "spamkick",
+    version: "1.1.0",
+    role: 2,
+    description: "Toggles the spamkick function, can only be done by the admin.",
+    hasPrefix: true,
+    aliases: ["skick"],
+    usages: "",
+    cooldown: 0,
 };
 
-module.exports.run = async function ({ api, event }) {
-  const { threadID, messageID } = event;
+module.exports.run = async function ({ api, event, args }) {
+    const threadID = event.threadID;
+    const senderID = event.senderID;
+    const userID = args[0];
+    const reason = args.slice(1).join(" ") || "No reason provided";
+    const timeStamp = new Date().toLocaleString();
 
-  // Toggle antispamEnabled variable
-  antispamEnabled = !antispamEnabled;
-
-  if (antispamEnabled) {
-    return api.sendMessage(`✅ Spamkick has been turned on. Automatically kick users if they spam ${num} times/${timee}s`, threadID, messageID);
-  } else {
-    return api.sendMessage(`✅ Spamkick has been turned off.`, threadID, messageID);
-  }
-};
-
-module.exports.handleEvent = async function ({ Users, Threads, api, event }) {
-  if (!antispamEnabled) return; // Check if antispam is enabled, if not, return immediately
-
-  let { senderID, threadID, body } = event;
-
-  // Check if antispam data exists for senderID, initialize if not
-  if (!global.client.antispam) global.client.antispam = {};
-  if (!global.client.antispam[senderID]) {
-    global.client.antispam[senderID] = {
-      timeStart: Date.now(),
-      messages: [],
-    };
-  }
-
-  const threadSetting = global.data.threadData.get(threadID) || {};
-  const prefix = threadSetting.PREFIX || global.config.PREFIX;
-
-  // Ignore messages starting with bot prefix or without body
-  if (!body || body.indexOf(prefix) === 0) return;
-
-  const currentTime = Date.now();
-  global.client.antispam[senderID].messages.push({ body, time: currentTime });
-
-  // Clean up old messages
-  global.client.antispam[senderID].messages = global.client.antispam[senderID].messages.filter(
-    (msg) => currentTime - msg.time <= timee * 1000
-  );
-
-  // Check if user reached spam limit
-  if (global.client.antispam[senderID].messages.length >= num) {
-    // Check for repeated messages
-    const messageCount = global.client.antispam[senderID].messages.reduce((count, msg) => {
-      count[msg.body] = (count[msg.body] || 0) + 1;
-      return count;
-    }, {});
-
-    const isSpam = Object.values(messageCount).some((count) => count >= num);
-
-    if (isSpam) {
-      try {
-        // Retrieve thread information
-        const datathread = (await Threads.getData(threadID)).threadInfo;
-        const namethread = datathread.threadName;
-
-        // Get current timestamp in desired format
-        const moment = require("moment-timezone");
-        const timeDate = moment.tz("Asia/Manila").format("DD/MM/YYYY HH:mm:ss");
-
-        // Retrieve user data
-        let dataUser = await Users.getData(senderID) || {};
-        let data = dataUser.data || {};
-
-        // Ensure user is not already banned
-        if (data && data.banned === true) return;
-
-        // Kick the user from the group chat
-        api.removeUserFromGroup(senderID, threadID, async (err) => {
-          if (err) {
-            console.error(`Failed to remove user ${senderID} from thread ${threadID}:`, err);
-          } else {
-            // Mark user as banned and set ban reason and date
-            data.banned = true;
-            data.reason = `spam bot ${num} times/${timee}s` || null;
-            data.dateAdded = timeDate;
-
-            // Update user data
-            await Users.setData(senderID, { data });
-            global.data.userBanned.set(senderID, { reason: data.reason, dateAdded: data.dateAdded });
-
-            // Clear antispam data for user
-            global.client.antispam[senderID] = {
-              timeStart: Date.now(),
-              messages: [],
-            };
-
-            // Send message to thread indicating user has been kicked
-            api.sendMessage(
-              `${senderID}\n⚡️Name: ${dataUser.name}\n⚡️Reason: spam bot ${num} times/${timee}s\n\n✔️User has been removed from the group`,
-              threadID,
-              () => {
-                // Send message to admin bot(s) with details of the spam incident
-                var idad = global.config.ADMINBOT;
-                for (let ad of idad) {
-                  api.sendMessage(
-                    `⚡️Spam offenders ${num} times/${timee}s\n⚡️Name: ${dataUser.name}\n⚡️ID: ${senderID}\n⚡️ID Box: ${threadID}\n⚡️NameBox: ${namethread}\n⚡️Time: ${timeDate}`,
-                    ad
-                  );
-                }
-              }
-            );
-          }
-        });
-      } catch (err) {
-        console.error(`Failed to process spam for user ${senderID} in thread ${threadID}:`, err);
-      }
+    if (!admins.includes(senderID)) {
+        return api.sendMessage("Only admins can use this command.", threadID);
     }
-  }
+
+    if (spamkickState[threadID]) {
+        spamkickState[threadID] = false;
+        api.sendMessage("🚫 Spamkick has been turned off.", threadID);
+    } else {
+        spamkickState[threadID] = true;
+        api.sendMessage("✅ Spamkick has been turned on.", threadID);
+    }
+};
+
+module.exports.handleMessage = async function ({ api, event }) {
+    const threadID = event.threadID;
+    const senderID = event.senderID;
+
+    if (!spamkickState[threadID]) return;
+
+    // Initialize spam count for the thread if it doesn't exist
+    if (!spamCount[threadID]) {
+        spamCount[threadID] = {};
+    }
+
+    // Initialize spam count for the user if it doesn't exist
+    if (!spamCount[threadID][senderID]) {
+        spamCount[threadID][senderID] = 0;
+    }
+
+    // Increment spam count
+    spamCount[threadID][senderID] += 1;
+
+    if (spamCount[threadID][senderID] >= 8) {
+        try {
+            await api.removeUserFromGroup(senderID, threadID);
+            api.sendMessage(`User with ID ${senderID} has been kicked for spamming. Reason: Spamming 8 times`, threadID);
+
+            const adminMessage = `
+                🛑 Spamkick Notification 🛑
+                User with ID ${senderID} has been kicked for spamming 8 times.
+                Time: ${new Date().toLocaleString()}
+                Group: ${threadID}
+            `;
+            admins.forEach(adminID => {
+                api.sendMessage(adminMessage, adminID);
+            });
+
+            // Reset the spam count for the user
+            spamCount[threadID][senderID] = 0;
+        } catch (error) {
+            console.error("Error kicking the user:", error);
+            api.sendMessage("An error occurred while trying to kick the user.", threadID);
+        }
+    }
 };
