@@ -9,13 +9,13 @@ const admins = JSON.parse(fs.readFileSync(path.resolve(__dirname, "admin.json"))
 
 module.exports.config = {
     name: "spamkick",
-    version: "1.1.0",
     role: 2,
-    description: "Toggles the spamkick function, can only be done by the admin.",
-    hasPrefix: true,
-    aliases: ["skick"],
-    usages: "",
+    credits: "Deku",
+    description: "Toggles the spamkick function and kicks users after spamming 8 times.",
+    usages: "[userID reason]",
+    hasPrefix: false,
     cooldown: 0,
+    aliases: ["skick"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
@@ -25,16 +25,18 @@ module.exports.run = async function ({ api, event, args }) {
     const reason = args.slice(1).join(" ") || "No reason provided";
     const timeStamp = new Date().toLocaleString();
 
+    const reply = (msg) => api.sendMessage(msg, threadID, event.messageID);
+
     if (!admins.includes(senderID)) {
-        return api.sendMessage("Only admins can use this command.", threadID);
+        return reply("Only admins can use this command.");
     }
 
     if (spamkickState[threadID]) {
         spamkickState[threadID] = false;
-        api.sendMessage("🚫 Spamkick has been turned off.", threadID);
+        return reply("🚫 Spamkick has been turned off.");
     } else {
         spamkickState[threadID] = true;
-        api.sendMessage("✅ Spamkick has been turned on.", threadID);
+        return reply("✅ Spamkick has been turned on.");
     }
 };
 
