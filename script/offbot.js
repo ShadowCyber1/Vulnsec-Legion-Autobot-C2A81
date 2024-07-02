@@ -9,4 +9,6 @@ module.exports.config = {
     cooldowns: 2,
 };
 
-module.exports.run = ({ event, api }) => api.sendMessage("The bot is now turning off.", event.threadID, () => process.exit(0));
+module.exports.run = ({ event, api }) => {
+    api.sendMessage("The bot is now turning off.", event.threadID, () => process.exit(0));
+};
