@@ -3,7 +3,7 @@ const { exec } = require('child_process');
 module.exports.config = {
     name: "onbot",
     version: "1.1.0",
-    hasPermssion: 0,
+    role: 2,
     credits: "yukihirasoma",
     description: "Turn on the bot",
     usePrefix: true,
