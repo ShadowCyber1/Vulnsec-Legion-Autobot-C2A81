@@ -1,7 +1,7 @@
 module.exports.config = {
     name: "offbot",
     version: "1.1.0",
-    hasPermssion: 0,
+    role: 2,
     credits: "yukihirasoma",
     description: "Turn off the bot",
     usePrefix: true,
